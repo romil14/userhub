@@ -1,0 +1,5 @@
+*.sln
+*.suo
+UserHub/UserHub/bin/Debug/
+UserHub/UserHub/obj/
+UserHub/.vs/
