@@ -3,3 +3,7 @@
 UserHub/UserHub/bin/Debug/
 UserHub/UserHub/obj/
 UserHub/.vs/
+*.dll
+UserHub/uh.Interfaces/bin/Debug/
+UserHub/uh.Interfaces/obj/
+UserHub/UserHub/UserHub.csproj.user
