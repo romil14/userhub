@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,26 +17,29 @@ namespace uh.Services.Services
     {
         private readonly ILogger<UserDetailsService> _logger;
 
-        private readonly IRepositoryWrapper _repositoryWrapper;      
-        public UserDetailsService(ILogger<UserDetailsService> logger, IRepositoryWrapper repositoryWrapper)
+        private readonly IRepositoryWrapper _repositoryWrapper;
+
+        private IMapper _mapper;
+        public UserDetailsService(ILogger<UserDetailsService> logger, IRepositoryWrapper repositoryWrapper, IMapper mapper)
         {
             _logger = logger;
             _repositoryWrapper = repositoryWrapper;
+            _mapper = mapper;
         }
 
-        public async Task<Response<List<UserDetailsModel>>> GetAllUsers()
+        public async Task<Response<List<UserDetailsDto>>> GetAllUsers()
         {
-            var response = new Response<List<UserDetailsModel>>();
+            var response = new Response<List<UserDetailsDto>>();
             try
             {
                 var result = _repositoryWrapper.UserDetails.GetAllUsers();
 
                 _logger.LogInformation($"Returned all Users from database.");
-                var userList = new List<UserDetailsModel>();
+                var userList = new List<UserDetailsDto>();
 
                 response.Message = "Success";
                 response.StatusCode = Convert.ToInt32(ResponseStatus.Success);
-                response.ResponseInfo = userList;
+                response.ResponseInfo = _mapper.Map<List<UserDetailsDto>>(result);
 
                 return response;
                 

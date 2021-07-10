@@ -24,7 +24,7 @@ namespace UserHub.Controllers
 
 
         [HttpGet]
-        public async Task<Response<List<UserDetailsModel>>> GetAllUsers()
+        public async Task<Response<List<UserDetailsDto>>> GetAllUsers()
         {
             var result = await this._userDetailsService.GetAllUsers();
 

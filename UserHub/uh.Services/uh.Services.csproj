@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\uh.Helpers\uh.Helpers.csproj" />
     <ProjectReference Include="..\uh.Interfaces\uh.RepositoryInterfaces.csproj" />
     <ProjectReference Include="..\uh.ServiceInterfaces\uh.ServiceInterfaces.csproj" />

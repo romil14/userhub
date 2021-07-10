@@ -31,6 +31,7 @@ namespace UserHub
             services.ConfigureIISIntegration();
             services.ConfigureSqlDbContext(Configuration);
             services.ConfigureDependency();
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
         }

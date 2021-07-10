@@ -10,6 +10,6 @@ namespace uh.ServiceInterfaces.Entities
 {
     public interface IUserDetailsService 
     {
-        Task<Response<List<UserDetailsModel>>> GetAllUsers();
+        Task<Response<List<UserDetailsDto>>> GetAllUsers();
     }
 }
