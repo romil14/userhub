@@ -7,3 +7,15 @@ UserHub/.vs/
 UserHub/uh.Interfaces/bin/Debug/
 UserHub/uh.Interfaces/obj/
 UserHub/UserHub/UserHub.csproj.user
+UserHub/uh.Entities/bin/
+UserHub/uh.Entities/obj/
+UserHub/uh.Helpers/bin/
+UserHub/uh.Helpers/obj/
+UserHub/uh.Repositories/bin/
+UserHub/uh.Repositories/obj/
+UserHub/uh.ServiceInterfaces/bin/
+UserHub/uh.ServiceInterfaces/obj/
+UserHub/uh.Services/bin/
+UserHub/uh.Services/obj/
+UserHub/uh.ViewModels/obj/
+UserHub/uh.ViewModels/bin/

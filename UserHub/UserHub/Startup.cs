@@ -29,6 +29,8 @@ namespace UserHub
         {
             services.ConfigureCors();
             services.ConfigureIISIntegration();
+            services.ConfigureSqlDbContext(Configuration);
+            services.ConfigureDependency();
 
             services.AddControllers();
         }

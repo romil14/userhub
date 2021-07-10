@@ -1,15 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\uh.Entities\uh.Entities.csproj" />
+    <ProjectReference Include="..\uh.Helpers\uh.Helpers.csproj" />
     <ProjectReference Include="..\uh.Interfaces\uh.RepositoryInterfaces.csproj" />
-    <ProjectReference Include="..\uh.Repositories\uh.Repositories.csproj" />
     <ProjectReference Include="..\uh.ServiceInterfaces\uh.ServiceInterfaces.csproj" />
-    <ProjectReference Include="..\uh.Services\uh.Services.csproj" />
+    <ProjectReference Include="..\uh.ViewModels\uh.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
