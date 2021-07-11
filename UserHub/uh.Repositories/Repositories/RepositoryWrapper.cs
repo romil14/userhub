@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using uh.Entities.Context;
-using uh.Interfaces.Entities;
+using uh.Repositories.Contracts;
 
-namespace uh.Repositories.Entities
+namespace uh.Repositories.Repositories
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {

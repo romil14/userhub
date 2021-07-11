@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace uh.Interfaces.Entities
+namespace uh.Repositories.Contracts
 {
     public interface IRepositoryWrapper
     {

@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
-namespace uh.Interfaces.Common
+namespace uh.Repositories.Contracts
 {
     public interface IGenericRepository<T>
     {
-        T FindById(int id);      
+        T FindById(int id);
 
         IQueryable<T> FindAll();
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);

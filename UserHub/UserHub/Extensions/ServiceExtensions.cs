@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using uh.Entities.Context;
-using uh.Interfaces.Entities;
-using uh.Repositories.Entities;
+using uh.Repositories.Contracts;
+using uh.Repositories.Repositories;
 using uh.Services.Contracts;
 using uh.Services.Services;
 

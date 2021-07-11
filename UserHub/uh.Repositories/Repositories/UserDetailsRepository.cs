@@ -2,20 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using uh.Entities.Context;
 using uh.Entities.Models;
-using uh.Interfaces.Entities;
-using uh.Repositories.Common;
+using uh.Repositories.Contracts;
 
-namespace uh.Repositories.Entities
+namespace uh.Repositories.Repositories
 {
     public class UserDetailsRepository : GenericRepository<UserDetails>, IUserDetailsRepository
     {
+        
         public UserDetailsRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
-
+            
         }
 
         public void CreateUser(UserDetails userDetails)
@@ -43,9 +42,18 @@ namespace uh.Repositories.Entities
             return await FindByCondition(d => d.UserDetailsId == id).FirstOrDefaultAsync();
         }
 
-        public async Task<UserDetails> GetUserByUserName(string userName)
-        {
-            return await FindByCondition(d => string.Equals(d.UserName, userName, StringComparison.OrdinalIgnoreCase)).FirstOrDefaultAsync();       
+        public async Task<bool> CheckUserNameExist(string userName, int userDetailsId)
+        {                 
+            var result = await GetAllUsers();
+
+            if(userDetailsId == 0)
+            {
+                //Check while Create
+                return result.Any(d => d.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
+            }
+
+            //Check while Edit
+            return result.Any(d => d.UserDetailsId != userDetailsId && d.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase));
         }
 
        

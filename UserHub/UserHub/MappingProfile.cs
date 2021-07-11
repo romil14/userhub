@@ -13,7 +13,7 @@ namespace UserHub
         public MappingProfile()
         {
             CreateMap<UserDetails, UserDetailsDto>();
-          
+            CreateMap<UserDetailsDto, UserDetails>();
         }
     }
 }

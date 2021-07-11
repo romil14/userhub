@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\uh.Entities\uh.Entities.csproj" />
-    <ProjectReference Include="..\uh.Interfaces\uh.RepositoryInterfaces.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,18 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using uh.Entities.Context;
-using uh.Interfaces.Common;
+using uh.Repositories.Contracts;
 
-namespace uh.Repositories.Common
+namespace uh.Repositories.Repositories
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected RepositoryContext _repositoryContext;
+        protected RepositoryContext _repositoryContext { get; set; }
         public GenericRepository(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;

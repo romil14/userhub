@@ -2,12 +2,10 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using uh.Entities.Models;
 using uh.Helpers;
-using uh.Interfaces.Entities;
+using uh.Repositories.Contracts;
 using uh.Services.Contracts;
 using uh.ViewModels.BaseRequestResponse;
 using uh.ViewModels.Models;
@@ -47,8 +45,9 @@ namespace uh.Services.Services
                     return response;
                 }
 
-                var existingUserNameItem = await this._repositoryWrapper.UserDetails.GetUserByUserName(userDetailsDto.UserName);
-                if(existingUserNameItem != null)
+                var anyUserNameItem = await this._repositoryWrapper.UserDetails.CheckUserNameExist(userDetailsDto.UserName, userDetailsDto.UserDetailsId);
+               
+                if(anyUserNameItem)
                 {
                     _logger.LogError($"User Name {userDetailsDto.UserName} sent from client is already exist.");
                    
@@ -208,8 +207,8 @@ namespace uh.Services.Services
                     return response;
                 }
 
-                var existingUserNameItem = await this._repositoryWrapper.UserDetails.GetUserByUserName(userDetailsDto.UserName);
-                if (existingUserNameItem != null)
+                var anyUserNameItem = await this._repositoryWrapper.UserDetails.CheckUserNameExist(userDetailsDto.UserName, userDetailsDto.UserDetailsId);
+                if (anyUserNameItem)
                 {
                     _logger.LogError($"User Name {userDetailsDto.UserName} sent from client is already exist.");
 

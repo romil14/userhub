@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\uh.Entities\uh.Entities.csproj" />
-    <ProjectReference Include="..\uh.Interfaces\uh.RepositoryInterfaces.csproj" />
     <ProjectReference Include="..\uh.Repositories\uh.Repositories.csproj" />
     <ProjectReference Include="..\uh.Services\uh.Services.csproj" />
   </ItemGroup>

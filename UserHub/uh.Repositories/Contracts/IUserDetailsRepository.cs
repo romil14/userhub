@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using uh.Entities.Models;
-using uh.Interfaces.Common;
 
-namespace uh.Interfaces.Entities
+namespace uh.Repositories.Contracts
 {
-    public interface IUserDetailsRepository : IGenericRepository<UserDetails>
+    public interface IUserDetailsRepository 
     {
         Task<IEnumerable<UserDetails>> GetAllUsers();
 
@@ -15,6 +14,6 @@ namespace uh.Interfaces.Entities
         void UpdateUser(UserDetails userDetails);
         void DeleteUser(UserDetails userDetails);
 
-        Task<UserDetails> GetUserByUserName(string userName);
+        Task<bool> CheckUserNameExist(string userName, int userDetailsId);
     }
 }
