@@ -1,17 +1,18 @@
 import React from 'react';
-import { Row} from 'react-bootstrap';
-import Container from 'react-bootstrap/Container'
+
+import Navigation from '../Navigation/Navigation';
 
 const layout = (props) => {
     return(
-        <Container >
-            <Row>
-            This is the place for the navigation component.
-            </Row>
+        <div className="container">
+            <div className="row">
+                <Navigation/>
+            </div>
             <main>
                 {props.children}
             </main>
-        </Container >
+        </div>
+      
     )
 }
 
