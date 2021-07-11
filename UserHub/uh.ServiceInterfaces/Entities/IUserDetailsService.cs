@@ -11,5 +11,11 @@ namespace uh.ServiceInterfaces.Entities
     public interface IUserDetailsService 
     {
         Task<Response<List<UserDetailsDto>>> GetAllUsers();
+
+        Task<Response<UserDetailsDto>> GetUserById(int id);
+
+        Task<Response<object>> CreateUser(UserDetailsDto userDetailsDto);
+        Task<Response<object>> UpdateUser(UserDetailsDto userDetailsDto);
+        Task<Response<object>> DeleteUser(int id);
     }
 }

@@ -12,8 +12,12 @@ namespace uh.Helpers
         [Description("Success")]
         Success = 1,
         [Description("Failed")]
-        Failed = 2
+        Failed = 2,
+        [Description("No Data")]
+        NoData = 3
     }
+
+    
 
   
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +18,36 @@ namespace uh.Repositories.Entities
 
         }
 
-        public IEnumerable<UserDetails> GetAllUsers()
+        public void CreateUser(UserDetails userDetails)
         {
-            return FindAll()
-                .OrderBy(ow => ow.Name)
-                .ToList();
+            Create(userDetails);
         }
+
+        public void DeleteUser(UserDetails userDetails)
+        {
+            Delete(userDetails);
+        }
+
+        public void UpdateUser(UserDetails userDetails)
+        {
+            Update(userDetails);
+        }
+
+        public async Task<IEnumerable<UserDetails>> GetAllUsers()
+        {
+            return await FindAll().OrderBy(d => d.Name).ToListAsync();
+        }
+
+        public async Task<UserDetails> GetUserById(int id)
+        {
+            return await FindByCondition(d => d.UserDetailsId == id).FirstOrDefaultAsync();
+        }
+
+        public async Task<UserDetails> GetUserByUserName(string userName)
+        {
+            return await FindByCondition(d => string.Equals(d.UserName, userName, StringComparison.OrdinalIgnoreCase)).FirstOrDefaultAsync();       
+        }
+
+       
     }
 }
