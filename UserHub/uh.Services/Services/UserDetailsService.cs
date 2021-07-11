@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using uh.Entities.Models;
 using uh.Helpers;
 using uh.Interfaces.Entities;
-using uh.ServiceInterfaces.Entities;
+using uh.Services.Contracts;
 using uh.ViewModels.BaseRequestResponse;
 using uh.ViewModels.Models;
 

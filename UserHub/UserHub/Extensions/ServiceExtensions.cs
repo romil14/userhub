@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using uh.Entities.Context;
 using uh.Interfaces.Entities;
 using uh.Repositories.Entities;
-using uh.ServiceInterfaces.Entities;
+using uh.Services.Contracts;
 using uh.Services.Services;
 
 namespace UserHub.Extensions

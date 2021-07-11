@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace uh.ViewModels.BaseRequestResponse
 {
-    public class ErrorInfo : IErrorInfo
+    public class ErrorInfo
     {
         public string Message { get; set; }
         public string ErrorCode { get; set; }

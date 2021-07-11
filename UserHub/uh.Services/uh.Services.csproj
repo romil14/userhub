@@ -11,7 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\uh.Helpers\uh.Helpers.csproj" />
     <ProjectReference Include="..\uh.Interfaces\uh.RepositoryInterfaces.csproj" />
-    <ProjectReference Include="..\uh.ServiceInterfaces\uh.ServiceInterfaces.csproj" />
     <ProjectReference Include="..\uh.ViewModels\uh.ViewModels.csproj" />
   </ItemGroup>
 

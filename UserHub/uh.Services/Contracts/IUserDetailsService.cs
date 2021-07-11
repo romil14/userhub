@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using uh.ViewModels.BaseRequestResponse;
 using uh.ViewModels.Models;
 
-namespace uh.ServiceInterfaces.Entities
+namespace uh.Services.Contracts
 {
-    public interface IUserDetailsService 
+    public interface IUserDetailsService
     {
         Task<Response<List<UserDetailsDto>>> GetAllUsers();
 

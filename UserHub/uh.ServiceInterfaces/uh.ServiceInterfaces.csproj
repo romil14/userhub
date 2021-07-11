@@ -8,4 +8,8 @@
     <ProjectReference Include="..\uh.ViewModels\uh.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
+
 </Project>

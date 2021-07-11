@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using uh.ServiceInterfaces.Entities;
+using uh.Services.Contracts;
 using uh.ViewModels.BaseRequestResponse;
 using uh.ViewModels.Models;
 
