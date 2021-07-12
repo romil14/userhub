@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <form [formGroup]="userForm" autocomplete="off" novalidate (ngSubmit)="createUser(userForm.value)">
+      <div class="form-horizontal card card-body bg-light mb-2 mt-2">
+   
+        <div class="form-group row">
+          <label for="name" class="control-label col-md-2">Name of the User: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="name" id="name" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('name') && hasError('name', 'required')">Name is required</em>
+            <em *ngIf="validateControl('name') && hasError('name', 'maxlength')">Maximum allowed length is 50 characters.</em>
+          </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="name" class="control-label col-md-2">Email: </label>
+            <div class="col-md-5">
+              <input type="email" formControlName="email" id="email" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+              <em *ngIf="validateControl('email') && hasError('email', 'maxlength')">Maximum allowed length is 50 characters.</em>             
+              <em *ngIf="validateControl('email') && hasError('email', 'email')">Email address is invalid.</em>
+            </div>
+          </div>
+          <br>
+          <div class="form-group row">
+            <label for="name" class="control-label col-md-2">Password: </label>
+            <div class="col-md-5">
+              <input type="password" formControlName="password" id="password" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+              <em *ngIf="validateControl('password') && hasError('password', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              <em *ngIf="validateControl('password') && hasError('password', 'minlength')">Minimum allowed length is 6 characters.</em>
+            </div>
+          </div>
+          <br>
+          <div class="form-group row">
+            <label for="name" class="control-label col-md-2">UserName: </label>
+            <div class="col-md-5">
+              <input type="text" formControlName="userName" id="userName" class="form-control" />
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('userName') && hasError('userName', 'required')">UserName is required</em>
+              <em *ngIf="validateControl('userName') && hasError('userName', 'maxlength')">Maximum allowed length is 50 characters.</em>
+              <em *ngIf="errorMessage">{{errorMessage}}</em>
+            </div>
+          </div>
+          <br>
+        <div class="form-group row">
+          <label for="dateOfBirth" class="control-label col-md-2">Date of birth: </label>
+          <div class="col-md-5">
+            <input type="date" formControlName="dateOfBirth" value="dateOfBirth" id="dateOfBirth" class="form-control"  
+                   />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('dateOfBirth') && hasError('dateOfBirth', 'required')">Date of birth is required</em>
+          </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="name" class="control-label col-md-2">Gender: </label>
+            <div class="col-md-5">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  id="flexRadioMale" checked formControlName="gender" value="M">
+                    <label class="form-check-label" for="flexRadioMale">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  id="flexRadioFemale" formControlName="gender" value="F">
+                    <label class="form-check-label" for="flexRadioFemale">
+                      Female
+                    </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  id="flexRadioOther" formControlName="gender" value="O">
+                    <label class="form-check-label" for="flexRadioOther">
+                      Other
+                    </label>
+                  </div>
+            </div>
+            <div class="col-md-5">
+              <em *ngIf="validateControl('gender') && hasError('gender', 'required')">Gender is required</em>
+             
+            </div>
+          </div>
+   
+        
+   
+        <br><br>
+   
+        <div class="form-group row">
+            <div class="offset-5 col-md-1">
+                <button type="submit" class="btn btn-info" [disabled]="!userForm.valid">Save</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-danger" (click)="redirectToUserList()">Cancel</button>
+            </div>
+        </div>
+        
+      </div>
+    </form>
+   
+    <app-success-modal [modalHeaderText]="'Success message'" 
+    [modalBodyText]="'Action completed successfully'" [okButtonText]="'OK'" 
+    (redirectOnOK)="redirectToUserList()"></app-success-modal>
+   
+    <app-error-modal [modalHeaderText]="'Error message'" 
+    [modalBodyText]="errorMessage" [okButtonText]="'OK'"></app-error-modal>
+   
+  </div>

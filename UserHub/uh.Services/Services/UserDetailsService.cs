@@ -54,13 +54,15 @@ namespace uh.Services.Services
                     response.Message = "Failed";
                     response.ErrorInfo = new List<ErrorInfo>()
                     {
-                        new ErrorInfo("EI02", $"User Name {userDetailsDto.UserName} is already exist.")
+                        new ErrorInfo("EI02", $"User Name '{userDetailsDto.UserName}' is already exist.")
                     };
                     response.StatusCode = Convert.ToInt32(ResponseStatus.Failed);
                     return response;
                 }
 
                 var userEntity = _mapper.Map<UserDetails>(userDetailsDto);
+                userEntity.CreatedOn = DateTime.UtcNow;
+                userEntity.UpdatedOn = DateTime.UtcNow;
                 this._repositoryWrapper.UserDetails.CreateUser(userEntity);
                 await this._repositoryWrapper.Save();
 
@@ -215,12 +217,13 @@ namespace uh.Services.Services
                     response.Message = "Failed";
                     response.ErrorInfo = new List<ErrorInfo>()
                     {
-                        new ErrorInfo("EI02", $"User Name {userDetailsDto.UserName} sent from client is already exist.")
+                        new ErrorInfo("EI02", $"User Name '{userDetailsDto.UserName}' is already exist.")
                     };
 
                     response.StatusCode = Convert.ToInt32(ResponseStatus.Failed);
                     return response;
                 }
+               
 
                 _mapper.Map(userDetailsDto, existingUser);
                 this._repositoryWrapper.UserDetails.UpdateUser(existingUser);

@@ -4,7 +4,7 @@ export interface User{
     email:string;
     password: string;
     userName: string;
-    dateOfBirth: Date;
+    dateOfBirth: string;
     gender:string;
     status: number;
     updatedOn: Date;

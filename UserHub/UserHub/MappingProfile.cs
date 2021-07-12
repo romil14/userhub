@@ -13,7 +13,8 @@ namespace UserHub
         public MappingProfile()
         {
             CreateMap<UserDetails, UserDetailsDto>();
-            CreateMap<UserDetailsDto, UserDetails>();
+            CreateMap<UserDetailsDto, UserDetails>()
+                .ForMember(dest => dest.CreatedOn, opts => opts.Ignore()); ;
         }
     }
 }

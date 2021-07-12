@@ -1,6 +1,7 @@
 <div class="row"> 
     <div class="offset-10 col-md-2">
-      <a href="#">Create User</a>
+      <!-- <a href="#">Create User</a> -->
+      <button type="button" id="create" class="btn btn-success float-right margin-top-10" (click)="fnGoToCreateUser()">Create User</button>
     </div>
   </div>
   <br>
@@ -28,8 +29,8 @@
               <td>{{user.gender}}</td>
               <td>{{user.userName}}</td>
               <td><button type="button" id="details" class="btn btn-light" (click)="fnGetUserDetails(user.userDetailsId)">Details</button></td>
-              <td><button type="button" id="update" class="btn btn-success">Update</button></td>
-              <td><button type="button" id="delete" class="btn btn-danger">Delete</button></td>
+              <td><button type="button" id="update" class="btn btn-success" (click)="fnGoToUpdateUser(user.userDetailsId)">Update</button></td>
+              <td><button type="button" id="delete" class="btn btn-danger" (click)="fnDeleteUser(user.userDetailsId)">Delete</button></td>
             </tr>
           </tbody>
         </table>
