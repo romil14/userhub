@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepositoryService } from 'src/app/shared/services/repository.service';
 import { User } from 'src/app/_interfaces/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
@@ -10,7 +11,7 @@ import { User } from 'src/app/_interfaces/user.model';
 export class UsersListComponent implements OnInit {
 
   public users: User[] | undefined;
-  constructor(private repository: RepositoryService) { }
+  constructor(private repository: RepositoryService, private router: Router) { }
 
   ngOnInit(): void {
     this.fnGetAllUsers();
@@ -25,6 +26,11 @@ export class UsersListComponent implements OnInit {
       }
      
     })
+  }
+
+  public fnGetUserDetails = (id: number) =>{
+    const detailsUrl = `/users/details/${id}`;
+    this.router.navigate([detailsUrl]);
   }
 
 }

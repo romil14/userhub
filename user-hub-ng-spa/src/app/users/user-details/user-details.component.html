@@ -1,0 +1,50 @@
+<div class="card card-body bg-light mb-2 mt-2">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Name:</strong>
+      </div>
+      <div class="col-md-3">
+        {{user?.name}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <strong>Email:</strong>
+        </div>
+        <div class="col-md-3">
+          {{user?.email}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <strong>User name:</strong>
+        </div>
+        <div class="col-md-3">
+          {{user?.userName}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Gender:</strong>
+        </div>
+        <div class="col-md-3" *ngIf="user?.gender == 'M'">
+          Male
+        </div>
+        <div class="col-md-3" *ngIf="user?.gender == 'F'">
+            Female
+          </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Date of birth:</strong>
+      </div>
+      <div class="col-md-3">
+        {{user?.dateOfBirth | date: 'dd/MM/yyyy'}}
+      </div>
+    </div>
+   
+    
+  </div>
