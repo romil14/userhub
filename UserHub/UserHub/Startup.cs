@@ -34,6 +34,8 @@ namespace UserHub
             services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
+
+            services.ConfigureSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +59,13 @@ namespace UserHub
             app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                "User Demo API v1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

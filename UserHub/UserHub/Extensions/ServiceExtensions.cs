@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+using System;
 using uh.Entities.Context;
 using uh.Repositories.Contracts;
 using uh.Repositories.Repositories;
@@ -42,6 +44,37 @@ namespace UserHub.Extensions
         {
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddScoped<IUserDetailsService, UserDetailsService>();
+        }
+
+        public static void ConfigureSwagger(this IServiceCollection services)
+        {
+            var contact = new OpenApiContact()
+            {
+                Name = "Romil",
+                Email = "chandragade.romil@gmail.com"
+                
+            };
+
+            var license = new OpenApiLicense()
+            {
+                Name = "My License"
+                
+            };
+
+            var info = new OpenApiInfo()
+            {
+                Version = "v1",
+                Title = "Users API",
+                Description = "Users API Description",
+                TermsOfService = new Uri("http://www.example.com"),
+                Contact = contact,
+                License = license
+            };
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", info);
+            });
         }
     }
 }
