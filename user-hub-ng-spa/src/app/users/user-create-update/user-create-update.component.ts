@@ -25,7 +25,7 @@ export class UserCreateUpdateComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(50)]),
       gender: new FormControl('M', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(50)]),  
-      userName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      userName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       userDetailsId: new FormControl(0)
     });
 
