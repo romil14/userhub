@@ -31,4 +31,8 @@ export class UserDetailsComponent implements OnInit {
     })
   }
 
+  fnRedirectToUserList(){
+    this.router.navigate(['/users/list']);
+  }
+
 }
